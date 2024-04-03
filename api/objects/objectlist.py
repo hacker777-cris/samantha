@@ -645,14 +645,14 @@ class ObjectList(list):
         return self.__xor__(__objectlist)
     
     
-    
+from typing import Type
 
 def as_manager(
-        objectlist_subclass: type[ObjectList],
-        using: ObjectDatabase = None,
-        *args,
-        **kwargs
-    ):
+    objectlist_subclass: Type[ObjectList],
+    using: ObjectDatabase = None,
+    *args,
+    **kwargs
+):
     """
     Returns a decorator that creates an `ObjectManager` subclass from 
     the given objectlist subclass and sets the `manager` attribute of the decorated 
