@@ -1,0 +1,5 @@
+jobs:
+  request_task_run:
+    name: Request Task Run
+    command: python manage.py runscript scrape_links_task
+    schedule: "*/5 * * * *"

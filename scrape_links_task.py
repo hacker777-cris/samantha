@@ -23,8 +23,8 @@ def request_task_run():
     for workspace_id in workspace_ids:
         print(workspace_id)
         response = session.post(
-            #url="https://samanta100111.pythonanywhere.com/api/v1/campaigns/webhooks/tasks/",
-            url=f"http://localhost:8000/api/v1/campaignsV2/webhooks/tasks/?workspace_id={workspace_id}",
+            url=f"https://web-production-97c0.up.railway.app/api/v1/campaignsV2/webhooks/tasks/?workspace_id={workspace_id}",
+            #url=f"http://localhost:8000/api/v1/campaignsV2/webhooks/tasks/?workspace_id={workspace_id}",
             json={
                 "event": "task_due",
                 "task_name": "crawl_campaigns_leads_links",
