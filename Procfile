@@ -1,1 +1,1 @@
-web: samantha_campaigns.wsgi
+web: gunicorn samantha_campaigns.wsgi
