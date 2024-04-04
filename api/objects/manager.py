@@ -6,7 +6,6 @@ from django.conf import settings
 from .objectlist import ObjectList
 from .db import ObjectDatabase
 from .utils import import_obj_from_traversal_path
-from typing import Type
 
 
 
@@ -179,11 +178,11 @@ class ObjectManager:
     @classmethod
     def from_objectlist(
             cls, 
-            objectlist_class: Type[ObjectList], 
+            objectlist_class: type[ObjectList], 
             *, 
             using: ObjectDatabase = None, 
             subclass_name: str = None
-        ) -> Type["ObjectManager"]:
+        ) -> type["ObjectManager"]:
         """
         Creates a subclass of the ObjectManager for the given ObjectList class/subclass.
 
@@ -358,7 +357,7 @@ class use_objectlist:
     of the public methods of the given objectlist class.
     """
 
-    def __init__(self, objectlist_class: Type[ObjectList], *, set_as_base: bool = False):
+    def __init__(self, objectlist_class: type[ObjectList], *, set_as_base: bool = False):
         """
         Create a decorator that updates the decorated `ObjectManger` subclass 
         to use the given ObjectList class or subclass, and adds manager equivalents 
@@ -400,7 +399,7 @@ class use_objectlist:
         self.set_as_base = set_as_base
     
 
-    def __call__(self, manager_subclass: Type[ObjectManager]):
+    def __call__(self, manager_subclass: type[ObjectManager]):
         """
         #### `ObjectManager` subclass decorator.
 
@@ -438,7 +437,7 @@ class use_objectlist:
         return manager_subclass
     
 
-    def get_objectlist_methods(self, objectlist_class: Type[ObjectList]):
+    def get_objectlist_methods(self, objectlist_class: type[ObjectList]):
         """
         Returns a dictionary containing the objectlist class' public methods 
         that have the attribute `objectlist_only=False.`
@@ -460,7 +459,7 @@ class use_objectlist:
         return objectlist_methods
 
     
-    def get_missing_methods(self, objectlist_class: Type[ObjectList], manager_subclass: Type[ObjectManager]):
+    def get_missing_methods(self, objectlist_class: type[ObjectList], manager_subclass: type[ObjectManager]):
         """
         Returns a dictionary of ObjectList methods that are not available on the manager class.
 

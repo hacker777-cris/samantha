@@ -698,7 +698,7 @@ def as_manager(
         )
     
     from .bases import Object
-    def decorator(object_subclass: Type[Object]):
+    def decorator(object_subclass: type[Object]):
         """
         #### `Object` subclass decorator
 

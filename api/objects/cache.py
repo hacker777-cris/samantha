@@ -10,7 +10,7 @@ class ObjectCache:
 
     def __init__(
             self, 
-            __type: Type[Object], 
+            __type: type[Object], 
             *, 
             max_size: int = -1,
             clear_when_full: bool = False
