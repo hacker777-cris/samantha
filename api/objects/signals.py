@@ -1,12 +1,12 @@
 from collections.abc import Callable
 from typing import Any
 from django.dispatch import Signal
-
+from typing import List
 
 class ObjectSignal(Signal):
     """Object Signal"""
 
-    def __init__(self, name: str, providing_args: list[str] = None, use_caching: bool = False):
+    def __init__(self, name: str, providing_args: List[str] = None, use_caching: bool = False):
         super().__init__(use_caching=use_caching)
         if not isinstance(name, str):
             raise TypeError(f"ObjectSignal name must be a string, not {name.__class__}")
