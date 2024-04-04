@@ -12,4 +12,3 @@ apscheduler
 inflection
 python-dateutil
 cachetools
-NIXPACKS_PYTHON_VERSION==3.9
