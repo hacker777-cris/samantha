@@ -1,1 +1,1 @@
-web: gunicorn portfolio.wsgi
+web: samantha_campaigns.wsgi
