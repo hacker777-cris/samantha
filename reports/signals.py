@@ -5,10 +5,10 @@ from .dbobjects import CampaignRunReport
 from campaigns.dbobjects import Campaign
 from api.objects.signals import pre_delete
 
-
+from typing import Type
 
 @receiver(pre_delete, sender=Campaign)
-def pre_campaign_delete(sender: type[Campaign], **kwargs):
+def pre_campaign_delete(sender: Type[Campaign], **kwargs):
     campaign = kwargs.get("instance")
     workspace_id = campaign.creator_id
     print("workspace id inside the delete report",workspace_id)

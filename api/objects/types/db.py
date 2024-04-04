@@ -41,7 +41,7 @@ def _prepare_dbobjects_in_value_for_db(value: Any):
 
     return value
 
-
+from typing import Type
 def _construct_dbobjects_in_dbvalue(dbvalue: Any, primary_key: str):
     """
     Recursively searches for `DBObject`s in the given value and constructs them from their database values.
@@ -55,7 +55,7 @@ def _construct_dbobjects_in_dbvalue(dbvalue: Any, primary_key: str):
         if "__classloc__" in dbvalue:
             # If the database value has the class location, construct the DBObject from the database value
             try:
-                dbobject_class: type[DBObject] = import_obj_from_traversal_path(dbvalue["__classloc__"])
+                dbobject_class: Type[DBObject] = import_obj_from_traversal_path(dbvalue["__classloc__"])
                 return dbobject_class.from_dbvalue(dbvalue, primary_key=primary_key)
             except:
                 # If the DBObject cannot be constructed, return None
@@ -94,7 +94,7 @@ def _find_dbobjects_in_value(value: Any):
 
 def _construct_timestamp_from_isofmt(
         isofmt: str, 
-        expected_type: type[Union[datetime.datetime, datetime.date, datetime.time]] = datetime.datetime
+        expected_type: Type[Union[datetime.datetime, datetime.date, datetime.time]] = datetime.datetime
     ):
     """
     Constructs a datetime, date or time from the given ISO formatted string.

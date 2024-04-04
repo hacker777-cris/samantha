@@ -637,6 +637,7 @@ class Campaign(DatacubeObject):
             campaign_creator=self.creator, 
             crawl_depth=crawl_depth
         )
+        
         for result in results:
             if self.broadcast_type.lower() == "sms":
                 phonenumbers = result.get("phone_numbers", [])

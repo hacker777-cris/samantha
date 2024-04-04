@@ -3,14 +3,14 @@ from django.utils import timezone
 
 from .bases import Object
 
-
+from typing import Type
 
 class ObjectCache:
     """Temporary storage for `Object`s"""
 
     def __init__(
             self, 
-            __type: type[Object], 
+            __type: Type[Object], 
             *, 
             max_size: int = -1,
             clear_when_full: bool = False
